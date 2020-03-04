@@ -123,29 +123,25 @@
 
 
 
-  <meta name="description" content="文章由来  以前没有写博客的习惯，也没写过几篇博客。之前有一次工作中找同事问一个前端问题，跑到他的办公桌前偶然的发现了这个”东西”。第一眼看上去给我的个人感觉很好，经过我对同事的仔细盘问后，在加以私下的了解，才知道这个博客是用 hexo (访问缓慢并且无样式，好像已弃用，最新的地址 hexo ) + next主题 搭建的。废话不多说了，Follow Me !">
-<meta name="keywords" content="hexo,next">
+  <meta name="description" content="简介&amp;emsp;&amp;emsp;JWT 是什么？JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证。基于token的身份验证可以替代传统的cookie+session身份验证方法。使用流程：初次登录：用户初次登录，输入用户名密码；密码验证：服务器从数据库取出用户名和密码进行验证；生成JW">
+<meta name="keywords" content="php,JWT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装配置hexo，部署+next主题">
-<meta property="og:url" content="https://hsweet.gitee.io/posts/hexo/c14c7c98.html">
+<meta property="og:title" content="JWT 学习笔记">
+<meta property="og:url" content="https://hsweet.gitee.io/posts/php/d9c65851.html">
 <meta property="og:site_name" content="愈望愈无望">
-<meta property="og:description" content="文章由来  以前没有写博客的习惯，也没写过几篇博客。之前有一次工作中找同事问一个前端问题，跑到他的办公桌前偶然的发现了这个”东西”。第一眼看上去给我的个人感觉很好，经过我对同事的仔细盘问后，在加以私下的了解，才知道这个博客是用 hexo (访问缓慢并且无样式，好像已弃用，最新的地址 hexo ) + next主题 搭建的。废话不多说了，Follow Me !">
+<meta property="og:description" content="简介&amp;emsp;&amp;emsp;JWT 是什么？JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证。基于token的身份验证可以替代传统的cookie+session身份验证方法。使用流程：初次登录：用户初次登录，输入用户名密码；密码验证：服务器从数据库取出用户名和密码进行验证；生成JW">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://hsweet.gitee.io/images/hexo.png">
-<meta property="og:image" content="https://i.loli.net/2018/09/13/5b99c23528c2e.png">
-<meta property="og:image" content="https://i.loli.net/2018/09/13/5b99dc98a90cb.png">
-<meta property="og:updated_time" content="2020-01-06T06:30:55.786Z">
+<meta property="og:updated_time" content="2020-03-04T02:29:17.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装配置hexo，部署+next主题">
-<meta name="twitter:description" content="文章由来  以前没有写博客的习惯，也没写过几篇博客。之前有一次工作中找同事问一个前端问题，跑到他的办公桌前偶然的发现了这个”东西”。第一眼看上去给我的个人感觉很好，经过我对同事的仔细盘问后，在加以私下的了解，才知道这个博客是用 hexo (访问缓慢并且无样式，好像已弃用，最新的地址 hexo ) + next主题 搭建的。废话不多说了，Follow Me !">
-<meta name="twitter:image" content="https://hsweet.gitee.io/images/hexo.png">
+<meta name="twitter:title" content="JWT 学习笔记">
+<meta name="twitter:description" content="简介&amp;emsp;&amp;emsp;JWT 是什么？JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证。基于token的身份验证可以替代传统的cookie+session身份验证方法。使用流程：初次登录：用户初次登录，输入用户名密码；密码验证：服务器从数据库取出用户名和密码进行验证；生成JW">
 
 
 
 
 
 
-  <link rel="canonical" href="https://hsweet.gitee.io/posts/hexo/c14c7c98.html"/>
+  <link rel="canonical" href="https://hsweet.gitee.io/posts/php/d9c65851.html"/>
 
 
 
@@ -155,7 +151,7 @@
   };
 </script>
 
-  <title>安装配置hexo，部署+next主题 | 愈望愈无望</title>
+  <title>JWT 学习笔记 | 愈望愈无望</title>
   
 
 
@@ -377,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/hexo/c14c7c98.html">
+    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/php/d9c65851.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Harlan">
@@ -394,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安装配置hexo，部署+next主题
+          <h1 class="post-title" itemprop="name headline">JWT 学习笔记
               
             
           </h1>
@@ -419,7 +415,7 @@
                 
               
 
-              <time title="创建时间：2018-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-12T00:00:00+08:00">2018-09-12</time>
+              <time title="创建时间：2020-03-03 15:16:23" itemprop="dateCreated datePublished" datetime="2020-03-03T15:16:23+08:00">2020-03-03</time>
             
 
             
@@ -436,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-01-06 14:30:55" itemprop="dateModified" datetime="2020-01-06T14:30:55+08:00">2020-01-06</time>
+                <time title="修改时间：2020-03-04 10:29:17" itemprop="dateModified" datetime="2020-03-04T10:29:17+08:00">2020-03-04</time>
               
             
           </span>
@@ -453,7 +449,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
 
                 
                 
@@ -468,8 +464,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/posts/hexo/c14c7c98.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/hexo/c14c7c98.html" itemprop="commentCount"></span>
+                <a href="/posts/php/d9c65851.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/php/d9c65851.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -497,60 +493,19 @@
       
 
       
-        <p><img src="https://hsweet.gitee.io/images/hexo.png" alt="hexo"></p>
-<h3 id="文章由来"><a href="#文章由来" class="headerlink" title="文章由来"></a>文章由来</h3><p>  以前没有写博客的习惯，也没写过几篇博客。之前有一次工作中找同事问一个前端问题，跑到他的办公桌前偶然的发现了这个”东西”。第一眼看上去给我的个人感觉很好，经过我对同事的仔细盘问后，在加以私下的了解，才知道这个博客是用 <del>hexo</del> <em>(访问缓慢并且无样式，好像已弃用，最新的地址 hexo )</em> + <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next主题</a> 搭建的。废话不多说了，Follow Me !</p>
-<a id="more"></a>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>在安装前，先确保电脑上已经安装了 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> 和 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 环境。</p>
-<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<div class="note danger"><p>文档上是使用npm安装的，也有人用 <a href="https://yarnpkg.com/zh-Hans/" target="_blank" rel="noopener">yarn</a> 安装的，博主说使用 yarn 安装要比 npm 要好，具体好在什么地方倒没试过。<br>使用 yarn 安装的博主连接 ：<a href="https://hooray.github.io/posts/15e2d21f/#more" target="_blank" rel="noopener">代码小睿</a> 。</p></div>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>新建一个文件夹，名字随便起，比如我的叫 <code>blog</code><br>进入到新建的文件夹输入以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<p>初始化完成后，你会看到这样的一个文件目录结构</p>
-<p><a href="https://i.loli.net/2018/09/13/5b99c23528c2e.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/09/13/5b99c23528c2e.png" alt="hexo-1.png"></a></p>
-<h4 id="创建一个文件"><a href="#创建一个文件" class="headerlink" title="创建一个文件"></a>创建一个文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post 第一篇文章	//在_post文件夹下创建一个名为 《第一篇文章》 的文件</span><br></pre></td></tr></table></figure>
-<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate		// 可以简写成 hexo g</span><br></pre></td></tr></table></figure>
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server		// 可以简写成 hexo s</span><br></pre></td></tr></table></figure>
-<p>以上命令会生成一个 localhost:4000 的连接， 打开连接会看到自己博客的首页。</p>
-<h3 id="部署到线上"><a href="#部署到线上" class="headerlink" title="部署到线上"></a>部署到线上</h3><p>GitHub 和 Gitee都支持Hexo静态网站的服务，我用的是Gitee。</p>
-<ol>
-<li><p>首先到你的GitHub 或 Gitee 上去建立一个仓库，仓库名称最好是你自己的英文名称或者自创的名称，仓库创建好后，复制仓库的地址</p>
-</li>
-<li><p>打开本地的 <code>_config.yml</code> 配置文件，找到最下面的 <code>deploy</code> 选项.</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: https://gitee.com/***/***  // 刚刚创建的仓库连接地址</span><br></pre></td></tr></table></figure>
-<div class="note warning"><p>注意：冒号后面一定要有一个空格</p></div>
-<ol>
-<li>安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a> 自动部署工具。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>上传到线上<br>安装完成自动部署工具后，使用命令上传到线上</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy  // 简写 hexo d</span><br></pre></td></tr></table></figure>
-<div class="note success"><p>第一次上传会提示你输入GitHub 或者 Gitee 的账号密码，确认后等待一会会提示你发布成功；<br>这时打开码云，找到刚刚项目分支，点击服务选择Gitee Pages，然后就可以看到线上的一个连接。<br>点击进入连接 <a href="https://hzlsourcetree.gitee.io/" target="_blank" rel="noopener">https://hsweet.gitee.io</a> 就可以看到线上的博客了。</p></div>
-<p><img src="https://i.loli.net/2018/09/13/5b99dc98a90cb.png" alt="gitee.png"></p>
-<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><h4 id="安装Next主题"><a href="#安装Next主题" class="headerlink" title="安装Next主题"></a>安装Next主题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<div class="note info"><p>我安装的是 <code>6.0.x</code> 的 NexT ，但在 NexT 官网上提供的还是 <code>5.1.x</code> 的安装命令和文档，因为 <code>6.0.x</code> 和 <code>5.1.x</code> 的配置有所不同，建议第一次练习搭建还是使用 <code>5.1.x</code> ，熟悉配置文档后，再用 <code>6.0.x</code> 。</p></div>
-<p>修改 <code>_config.yml</code> 文件里 theme 配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>虽然我安装的是 <code>6.0.x</code> ，但大部分还是可以根据 <a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">NexT</a> 主题配置 文档来修改，以下会介绍一些文档中没有提及的设置。</p>
-<div class="note default"><p>区分两个配置文件 :</p><ul><li><code>站点配置文件</code> <code style="color:#c33e3f;">_config.yml</code></li><li><code>主题配置文件</code> <code style="color:#c33e3f;">themes/next/_config.yml</code></li></ul></div>
-<h5 id="设置网站语言"><a href="#设置网站语言" class="headerlink" title="设置网站语言"></a>设置网站语言</h5><p>打开 <code>站点配置</code> 找到 <code>language</code> 修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
-<h5 id="开启导航"><a href="#开启导航" class="headerlink" title="开启导航"></a>开启导航</h5><p>打开 <code>主题配置</code> 找到 <code>menu</code> ，将需要开启的导航前面的 <code>#</code> 删掉</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home					// 首页</span><br><span class="line">  about: /about/ || user				// 关于我</span><br><span class="line">  tags: /tags/ || tags					// 标签</span><br><span class="line">  categories: /categories/ || th			// 分类</span><br><span class="line">  archives: /archives/ || archive			// 归档</span><br><span class="line">  #schedule: /schedule/ || calendar			// 日程表</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap			// 站点地图</span><br><span class="line">  commonweal: /404.html || heartbeat			// 404公益</span><br></pre></td></tr></table></figure>
-<p>这个时候会发现网站上已经能看到导航了，但点击却提示找不到页面。</p>
-<p>这时需要去新建对应的页面，比如新建 <code>标签</code> 页：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
-<p>新建好后会在 <code>source/tags/index.md</code> 看到刚新建的文件，在文件随便增加一句话重新编译生成试试。</p>
-<p>更多配置请参考文档 : <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next主题官方文档</a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><div class="note info"><p>每次新建的页面文件，修改文件 或 修改配置的时候只需要以下三个命令就ok了（甚至我觉得只需要这三个命令就行了）</p></div>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate		// 编译 简写: hexo g</span><br><span class="line"></span><br><span class="line">$ hexo server		// 生成临时文件并给出一个本地连接 简写: hexo s</span><br><span class="line"></span><br><span class="line">$ hexo deploy		// 把临时生成的文件上传到服务器</span><br></pre></td></tr></table></figure>
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>&emsp;&emsp;<a href="https://jwt.io/" target="_blank" rel="noopener">JWT</a> 是什么？JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证。基于token的身份验证可以替代传统的cookie+session身份验证方法。<br><div class="note primary"><p>使用流程：</p><ol><li>初次登录：用户初次登录，输入用户名密码；</li><li>密码验证：服务器从数据库取出用户名和密码进行验证；</li><li>生成JWT：服务器端验证通过，根据从数据库返回的信息，以及预设规则，生成JWT；</li><li>返还JWT：服务器的HTTP RESPONSE中将JWT返还；</li><li>带JWT的请求：以后客户端发起请求，HTTP REQUEST；</li><li>HEADER中的Authorizatio字段都要有值，为JWT；</li><li>服务器验证JWT；</li></ol></div></p>
+<h3 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h3><p>JWT由三个部分组成：<code>header.payload.signature</code></p>
+<h5 id="header部分："><a href="#header部分：" class="headerlink" title="header部分："></a>header部分：</h5><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"alg"</span>: <span class="string">"HS256"</span>,</span><br><span class="line">  <span class="attr">"typ"</span>: <span class="string">"JWT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>说明：该字段为json格式。</p><ul><li>alg：字段指定了生成signature的算法，默认值为：<code>HS256</code>，</li><li>typ：默认值为：<code>JWT</code></li></ul></div>
+<h5 id="payload部分："><a href="#payload部分：" class="headerlink" title="payload部分："></a>payload部分：</h5><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"sub"</span>: <span class="string">"1234567890"</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"John Doe"</span>,</span><br><span class="line">  <span class="attr">"iat"</span>: <span class="number">1516239022</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>说明：该字段为json格式，表明用户身份的数据，可以自己自定义字段，很灵活。</p><ul><li>sub 面向的用户</li><li>name 姓名</li><li>iat 签发时间<br>官方提供字段示例如下：undefined</li></ul></div>
+<h5 id="signature部分："><a href="#signature部分：" class="headerlink" title="signature部分："></a>signature部分：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>说明：将前两部分进行base64编码后使用<code>.</code>拼接成待加密字符串，<code>secret</code>是加密的密钥；<br>加密方式需要在 <strong>header</strong> 指定，有好多种：<code>HS256</code>，<code>HS384</code>，<code>RS256</code> 等。</p></div>
+<h3 id="实践代码"><a href="#实践代码" class="headerlink" title="实践代码"></a>实践代码</h3><div class="note warning"><p>注意：php版本 <code>&gt;= 7.0.*</code></p></div>
+<p>类封装：jwt.class.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * PHP实现jwt</span></span><br><span class="line"><span class="comment"> * 作者：https://segmentfault.com/a/1190000016251365</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Jwt</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//头部</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> $header=<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'alg'</span>=&gt;<span class="string">'HS256'</span>, <span class="comment">//生成signature的算法</span></span><br><span class="line">        <span class="string">'typ'</span>=&gt;<span class="string">'JWT'</span>    <span class="comment">//类型</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用HMAC生成信息摘要时所使用的密钥</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> $key=<span class="string">'123456'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取jwt token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $payload jwt载荷   格式如下非必须</span></span><br><span class="line"><span class="comment">     * [</span></span><br><span class="line"><span class="comment">     *  'iss'=&gt;'jwt_admin',  //该JWT的签发者</span></span><br><span class="line"><span class="comment">     *  'iat'=&gt;time(),  //签发时间</span></span><br><span class="line"><span class="comment">     *  'exp'=&gt;time()+7200,  //过期时间</span></span><br><span class="line"><span class="comment">     *  'nbf'=&gt;time()+60,  //该时间之前不接收处理该Token</span></span><br><span class="line"><span class="comment">     *  'sub'=&gt;'www.admin.com',  //面向的用户</span></span><br><span class="line"><span class="comment">     *  'jti'=&gt;md5(uniqid('JWT').time())  //该Token唯一标识</span></span><br><span class="line"><span class="comment">     * ]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool|string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getToken</span><span class="params">(array $payload)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(is_array($payload))</span><br><span class="line">        &#123;</span><br><span class="line">            $base64header=<span class="keyword">self</span>::base64UrlEncode(json_encode(<span class="keyword">self</span>::$header,JSON_UNESCAPED_UNICODE));</span><br><span class="line">            $base64payload=<span class="keyword">self</span>::base64UrlEncode(json_encode($payload,JSON_UNESCAPED_UNICODE));</span><br><span class="line">            $token=$base64header.<span class="string">'.'</span>.$base64payload.<span class="string">'.'</span>.<span class="keyword">self</span>::signature($base64header.<span class="string">'.'</span>.$base64payload,<span class="keyword">self</span>::$key,<span class="keyword">self</span>::$header[<span class="string">'alg'</span>]);</span><br><span class="line">            <span class="keyword">return</span> $token;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证token是否有效,默认验证exp,nbf,iat时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $Token 需要验证的token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool|string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">verifyToken</span><span class="params">(string $Token)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $tokens = explode(<span class="string">'.'</span>, $Token);</span><br><span class="line">        <span class="keyword">if</span> (count($tokens) != <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">list</span>($base64header, $base64payload, $sign) = $tokens;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取jwt算法</span></span><br><span class="line">        $base64decodeheader = json_decode(<span class="keyword">self</span>::base64UrlDecode($base64header), JSON_OBJECT_AS_ARRAY);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($base64decodeheader[<span class="string">'alg'</span>]))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//签名验证</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>::signature($base64header . <span class="string">'.'</span> . $base64payload, <span class="keyword">self</span>::$key, $base64decodeheader[<span class="string">'alg'</span>]) !== $sign)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        $payload = json_decode(<span class="keyword">self</span>::base64UrlDecode($base64payload), JSON_OBJECT_AS_ARRAY);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//签发时间大于当前服务器时间验证失败</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>($payload[<span class="string">'iat'</span>]) &amp;&amp; $payload[<span class="string">'iat'</span>] &gt; time())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//过期时间小宇当前服务器时间验证失败</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>($payload[<span class="string">'exp'</span>]) &amp;&amp; $payload[<span class="string">'exp'</span>] &lt; time())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//该nbf时间之前不接收处理该Token</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>($payload[<span class="string">'nbf'</span>]) &amp;&amp; $payload[<span class="string">'nbf'</span>] &gt; time())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $payload;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * base64UrlEncode   https://jwt.io/  中base64UrlEncode编码实现</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $input 需要编码的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">base64UrlEncode</span><span class="params">(string $input)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str_replace(<span class="string">'='</span>, <span class="string">''</span>, strtr(base64_encode($input), <span class="string">'+/'</span>, <span class="string">'-_'</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * base64UrlEncode  https://jwt.io/  中base64UrlEncode解码实现</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $input 需要解码的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool|string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">base64UrlDecode</span><span class="params">(string $input)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $remainder = strlen($input) % <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">if</span> ($remainder) &#123;</span><br><span class="line">            $addlen = <span class="number">4</span> - $remainder;</span><br><span class="line">            $input .= str_repeat(<span class="string">'='</span>, $addlen);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> base64_decode(strtr($input, <span class="string">'-_'</span>, <span class="string">'+/'</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * HMACSHA256签名   https://jwt.io/  中HMACSHA256签名实现</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $input 为base64UrlEncode(header).".".base64UrlEncode(payload)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $alg   算法方式</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">signature</span><span class="params">(string $input, string $key, string $alg = <span class="string">'HS256'</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $alg_config=<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'HS256'</span>=&gt;<span class="string">'sha256'</span></span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::base64UrlEncode(hash_hmac($alg_config[$alg], $input, $key,<span class="keyword">true</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * PHP实现jwt</span></span><br><span class="line"><span class="comment"> * 作者：https://segmentfault.com/a/1190000016251365</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">"jwt.class.php"</span>;</span><br><span class="line"></span><br><span class="line">$payload_test=<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'iss'</span> =&gt; <span class="string">'admin'</span>,</span><br><span class="line">    <span class="string">'iat'</span> =&gt; time(),</span><br><span class="line">    <span class="string">'exp'</span> =&gt; time()+<span class="number">7200</span>,</span><br><span class="line">    <span class="string">'nbf'</span> =&gt; time(),</span><br><span class="line">    <span class="string">'sub'</span> =&gt; <span class="string">'www.admin.com'</span>,</span><br><span class="line">    <span class="string">'jti'</span> =&gt; md5(uniqid(<span class="string">'JWT'</span>).time())</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$token_test = Jwt::getToken($payload_test);</span><br><span class="line"><span class="keyword">echo</span> $token_test;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证token签名</span></span><br><span class="line">$getPayload_test=Jwt::verifyToken($token_test);</span><br><span class="line">var_dump($getPayload_test);</span><br></pre></td></tr></table></figure></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo文档</a></li>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next主题文档</a></li>
-<li><a href="https://hooray.github.io/posts/15e2d21f/" target="_blank" rel="noopener">搭建hexo + next主题博客教程</a></li>
+<li><a href="https://segmentfault.com/a/1190000016251365" target="_blank" rel="noopener">php 后端实现JWT认证方法</a></li>
 </ul>
 
       
@@ -572,9 +527,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
           
-            <a href="/tags/next/" rel="tag"><i class="fa fa-tag"></i> next</a>
+            <a href="/tags/JWT/" rel="tag"><i class="fa fa-tag"></i> JWT</a>
           
         </div>
       
@@ -587,15 +542,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/posts/git/113d1d94.html" rel="next" title="git学习之路">
+                <i class="fa fa-chevron-left"></i> git学习之路
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/xdebug/8d586dc9.html" rel="prev" title="phpstorm配置Xdebug">
-                phpstorm配置Xdebug <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -800,7 +755,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章由来"><span class="nav-number">1.</span> <span class="nav-text">文章由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装前提"><span class="nav-number">2.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.2.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建站"><span class="nav-number">3.</span> <span class="nav-text">建站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个文件"><span class="nav-number">3.2.</span> <span class="nav-text">创建一个文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成静态文件"><span class="nav-number">3.3.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动服务"><span class="nav-number">3.4.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到线上"><span class="nav-number">4.</span> <span class="nav-text">部署到线上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">5.</span> <span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">5.1.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">5.2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置网站语言"><span class="nav-number">5.2.1.</span> <span class="nav-text">设置网站语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开启导航"><span class="nav-number">5.2.2.</span> <span class="nav-text">开启导航</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT"><span class="nav-number">2.</span> <span class="nav-text">JWT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#header部分："><span class="nav-number">2.0.1.</span> <span class="nav-text">header部分：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#payload部分："><span class="nav-number">2.0.2.</span> <span class="nav-text">payload部分：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#signature部分："><span class="nav-number">2.0.3.</span> <span class="nav-text">signature部分：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践代码"><span class="nav-number">3.</span> <span class="nav-text">实践代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
