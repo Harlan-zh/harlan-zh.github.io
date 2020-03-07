@@ -123,18 +123,18 @@
 
 
 
-  <meta name="description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。 解决方案 登录mysql查询设置最大的数据包值1234567mysql&amp;gt; show global varia">
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决ERROR 2006 (HY000): MySQL server has gone away">
 <meta property="og:url" content="https://hsweet.gitee.io/posts/mysql/e5995b09.html">
 <meta property="og:site_name" content="愈望愈无望">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。 解决方案 登录mysql查询设置最大的数据包值1234567mysql&amp;gt; show global varia">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-07T08:58:35.728Z">
+<meta property="og:updated_time" content="2020-03-07T09:02:28.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决ERROR 2006 (HY000): MySQL server has gone away">
-<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。 解决方案 登录mysql查询设置最大的数据包值1234567mysql&amp;gt; show global varia">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。">
 
 
 
@@ -415,7 +415,7 @@
                 
               
 
-              <time title="创建时间：2020-03-07 16:58:03 / 修改时间：16:58:35" itemprop="dateCreated datePublished" datetime="2020-03-07T16:58:03+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-07 16:58:03 / 修改时间：17:02:28" itemprop="dateCreated datePublished" datetime="2020-03-07T16:58:03+08:00">2020-03-07</time>
             
 
             
@@ -481,7 +481,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：<code>SQLSTATE[HY000]: General error: 2006 MySQL server has gone away</code>。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：<code>SQLSTATE[HY000]: General error: 2006 MySQL server has gone away</code>。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。<br><a id="more"></a></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
 <li>登录mysql查询设置最大的数据包值<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like 'max_allowed_packet';</span><br><span class="line">+<span class="comment">--------------------+---------+</span></span><br><span class="line">| Variable_name      | Value   |</span><br><span class="line">+<span class="comment">--------------------+---------+</span></span><br><span class="line">| max_allowed_packet | 1048576 |</span><br><span class="line">+<span class="comment">--------------------+---------+</span></span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
 </li>
