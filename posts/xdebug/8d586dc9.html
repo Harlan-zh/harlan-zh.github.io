@@ -124,7 +124,7 @@
 
 
   <meta name="description" content="前言相信做为一名PHP开发的程序员对sublime这个编辑器不陌生吧，我之前用的就是这个编辑器，在每次有BUG反馈过来的时候，我都是用die去一步一步的断点打印输出找错误，看着是不是就很痛苦。后来知道了 phpstorm + xdebug，欣喜若狂，这简直是款调试代码的神器呀，幸福来的好突然。后来这篇文章就诞生了。">
-<meta name="keywords" content="Xdebug,phpstorm">
+<meta name="keywords" content="phpstorm,Xdebug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="phpstorm配置Xdebug">
 <meta property="og:url" content="https://hsweet.gitee.io/posts/xdebug/8d586dc9.html">
@@ -533,7 +533,7 @@
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>点击编辑器上面的小瓢虫，这时会自动弹出编辑器代码断点的地方，并打印了上面的变量</p>
 <p><img src="https://i.loli.net/2018/10/23/5bcec6cc27d7b.png" alt="p6.png"></p>
 <h3 id="兼容-postman"><a href="#兼容-postman" class="headerlink" title="兼容 postman"></a>兼容 <code>postman</code></h3><p>在项目中使用 <code>postman</code> 调试的时候在 <code>header</code> 添加如下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KEY : Cookie</span><br><span class="line">VALUE : XDEBUG_SESSION=PHPSTORM</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KEY : <span class="type">Cookie</span></span><br><span class="line">VALUE : <span class="type">XDEBUG_SESSION</span>=PHPSTORM</span><br></pre></td></tr></table></figure>
 <p>点击 <code>Send</code> 后效果跟上面是一样的，自动弹出编辑器跳到断点的地方。</p>
 
       
@@ -555,9 +555,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Xdebug/" rel="tag"><i class="fa fa-tag"></i> Xdebug</a>
-          
             <a href="/tags/phpstorm/" rel="tag"><i class="fa fa-tag"></i> phpstorm</a>
+          
+            <a href="/tags/Xdebug/" rel="tag"><i class="fa fa-tag"></i> Xdebug</a>
           
         </div>
       
@@ -659,7 +659,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -686,7 +686,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -717,7 +719,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
