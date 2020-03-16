@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[rabbitMQ 安装教程]]></title>
+    <url>%2Fposts%2Frabbitmq%2Fa3479b5d.html</url>
+    <content type="text"><![CDATA[前言&emsp;&emsp;中间有段时间了解过消息队列，利用它们可以做很多事情，一般都广泛应用于需要异步处理的程序上。现在成型的队列有很多，其中有rabbitmq，beanstalkd等等，他们各有千秋。今天在centos 7上安装rabbitMQ记录一下。 官方安装简介&emsp;&emsp;基于RPM的Linux（RedHat Enterprise Linux，CentOS，Fedora，openSUSE） 上的RabbitMQ安装。RabbitMQ包含在标准Fedora和RHEL存储库中。但是，其中包含的版本通常是过时的，并且不再受支持。 有两种方法可以安装最新版本的RabbitMQ： 使用Package Cloud或Bintray上的Yum存储库安装软件包（强烈建议使用此选项） 下载软件包并使用rpm安装。此选项将需要手动安装所有软件包依赖项。 官方地址：rabbitMQ 安装教程 安装注意：erlang需要和rabbitmq的版本要匹配，RabbitMQ Erlang版本要求 安装ErlangrabbitMQ是erlang语言开发的，所以在安装之前必须要安装erlang依赖 使用官方提供的脚本进行安装：erlang Installation instructions1curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash 运行该脚本后会得到一个/etc/yum.repos.d/rabbitmq_erlang.repo包文件; 运行yum install erlang进行安装。中间如果有提示输入y等待安装完成就行了; 测试是否安装成功：erl; 安装rabbitMQ跟erlang安装是一样的操作使用官方提供的脚本进行安装：rabbitMQ Installation instructions1curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash 运行该脚本后会得到一个/etc/yum.repos.d/rabbitmq_rabbitmq-server.repo包文件; 运行yum install rabbitmq-server进行安装。中间如果有提示输入y等待安装完成就行了; 执行rabbitMQ的基本命令设置守护进程，系统启动时执行systemctl enable rabbitmq-server 启动systemctl start rabbitmq-server 停止systemctl stop rabbitmq-server 安装管理界面rabbitmq_managementrabbitmq-plugins enable rabbitmq_management 重启rabbitmq/sbin/service rabbitmq-server restart 查看http服务开启rabbitmqctl status 查看已经存在的用户rabbitmqctl list_users 新建用户rabbitmqctl add_user admin admin 授权rabbitmqctl set_user_tags admin administrator 参考 Installing on RPM-based Linux (RedHat Enterprise Linux, CentOS, Fedora, openSUSE) RabbitMQ Erlang版本要求 RabbitMA Installation instructions Erlang Installation instructions RabbitMQ安装和卸载 CentOS7安装RabbitMQ3.7]]></content>
+      <categories>
+        <category>rabbitmq</category>
+      </categories>
+      <tags>
+        <tag>rabbitmq</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决ERROR 2006 (HY000): MySQL server has gone away]]></title>
     <url>%2Fposts%2Fmysql%2Fe5995b09.html</url>
-    <content type="text"><![CDATA[前言&emsp;&emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。 解决方案 登录mysql查询设置最大的数据包值1234567mysql&gt; show global variables like 'max_allowed_packet';+--------------------+---------+| Variable_name | Value |+--------------------+---------+| max_allowed_packet | 1048576 |+--------------------+---------+1 row in set (0.01 sec) 上限是1M，mysql的默认配置。 修改配置，设置为16M1set global max_allowed_packet=1024*1024*16; 注意：以上命令修改值针对当前有效，mysql重启后还会变成默认值1M。 永久有效，修改配置文件 my.ini1max_allowed_packet = 16M 参考 解决ERROR 2006 (HY000): MySQL server has gone away]]></content>
+    <content type="text"><![CDATA[前言&emsp;&emsp;今天在做地址4级联动的时候，由于一次性全部取出数据导致报：SQLSTATE[HY000]: General error: 2006 MySQL server has gone away。于是在网上寻找相关的解决方案，发现是因为超过了mysql默认的数据包。 解决方案 登录mysql查询设置最大的数据包值1234567mysql&gt; show global variables like 'max_allowed_packet';+--------------------+---------+| Variable_name | Value |+--------------------+---------+| max_allowed_packet | 1048576 |+--------------------+---------+1 row in set (0.01 sec) 上限是1M，mysql的默认配置。 修改配置，设置为16M1set global max_allowed_packet = 1024 * 1024 * 16; 注意：以上命令修改值针对当前有效，mysql重启后还会变成默认值1M。 永久有效，修改配置文件 my.ini1max_allowed_packet = 16M 注意：修改完ini配置千万不要忘记重启哦，或者从新加载配置文件！ 参考 解决ERROR 2006 (HY000): MySQL server has gone away]]></content>
       <categories>
         <category>mysql</category>
       </categories>
