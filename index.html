@@ -372,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/hexo/c14c7c98.html">
+    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/rabbitmq/1ad863e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Harlan">
@@ -391,8 +391,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/hexo/c14c7c98.html" itemprop="url">
-                  安装配置hexo，部署+next主题
+                <a class="post-title-link" href="/posts/rabbitmq/1ad863e.html" itemprop="url">
+                  rabbitMQ学习笔记 - Hello World
                 </a>
               
             
@@ -418,24 +418,12 @@
                 
               
 
-              <time title="创建时间：2018-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-12T00:00:00+08:00">2018-09-12</time>
+              <time title="创建时间：2020-03-17 10:25:00 / 修改时间：13:50:05" itemprop="dateCreated datePublished" datetime="2020-03-17T10:25:00+08:00">2020-03-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-01-06 14:30:55" itemprop="dateModified" datetime="2020-01-06T14:30:55+08:00">2020-01-06</time>
               
             
           </span>
@@ -452,7 +440,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/rabbitmq/" itemprop="url" rel="index"><span itemprop="name">rabbitmq</span></a></span>
 
                 
                 
@@ -467,8 +455,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/posts/hexo/c14c7c98.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/hexo/c14c7c98.html" itemprop="commentCount"></span>
+                <a href="/posts/rabbitmq/1ad863e.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/rabbitmq/1ad863e.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -497,15 +485,216 @@
 
       
         
-          <p><img src="https://hsweet.gitee.io/images/hexo.png" alt="hexo"></p>
-<h3 id="文章由来"><a href="#文章由来" class="headerlink" title="文章由来"></a>文章由来</h3><p>  以前没有写博客的习惯，也没写过几篇博客。之前有一次工作中找同事问一个前端问题，跑到他的办公桌前偶然的发现了这个”东西”。第一眼看上去给我的个人感觉很好，经过我对同事的仔细盘问后，在加以私下的了解，才知道这个博客是用 <del>hexo</del> <em>(访问缓慢并且无样式，好像已弃用，最新的地址 hexo )</em> + <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next主题</a> 搭建的。废话不多说了，Follow Me !</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/hexo/c14c7c98.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <div class="note danger"><p>注意：</p><ul><li>在阅读之前保证你的电脑上已经安装并运行了rabbitMQ</li><li>如果您使用其他主机，端口或凭据，则叙述过程中连接设置需要进行调整。</li><li>下面介绍的操作都是基于CentOS7上完成的。</li><li>rabbitMQ脚本安装教程：<a href="https://harlan-zh.github.io/posts/rabbitmq/a3479b5d.html" target="_blank" rel="noopener">rabbitMQ 安装教程</a></li></ul></div>
+<h3 id="来自官网的简介"><a href="#来自官网的简介" class="headerlink" title="来自官网的简介"></a>来自官网的简介</h3><p>&emsp;&emsp;RabbitMQ是消息代理：它接受并转发消息。您可以将其视为邮局：将要发布的邮件放在邮箱中时，可以确保 Mail person 先生或女士最终将邮件传递给收件人。以此类推，RabbitMQ是一个邮箱，一个邮局和一个邮递员。RabbitMQ与邮局之间的主要区别在于，它不处理纸张，而是接收，存储和转发数据消息的二进制blob。</p>
+<p>RabbitMQ消息队列基础流程：</p>
+<ul>
+<li><strong>生产者</strong>：发送消息的程序叫生产端。</li>
+<li><strong>队&emsp;列</strong>：它的名字叫rabbit，它本质上是一个大的消息缓冲器。许多生产者可以发送进入一个队列的消息，许多消费者可以尝试从一个队列接收数据。</li>
+<li><strong>消费者</strong>：对应生产者，是用来接收生产者发出的消息。<br><img src="https://s1.ax1x.com/2020/03/17/8NPJM9.png" alt="8NPJM9.png"></li>
+</ul>
+<h3 id="使用-php-amqplib-客户端"><a href="#使用-php-amqplib-客户端" class="headerlink" title="使用 php-amqplib 客户端"></a>使用 php-amqplib 客户端</h3><p>官网推荐使用<code>php-amqplib</code>类库，amqplib的<a href="https://github.com/php-amqplib/php-amqplib" target="_blank" rel="noopener">github地址</a><br>使用<a href="https://getcomposer.org/" target="_blank" rel="noopener"><code>composer</code></a>进行依赖项管理。<br><div class="note default"><p>将composer.json文件添加到您的项目中：<br>undefined</p><p>运行<code>composer install</code>命令进行安装。<br>安装完成后项目中会产生一个vendor文件夹，里面包含的有<code>php-amqplib</code>类库</p></div></p>
+<h3 id="创建生产者（产生消息）"><a href="#创建生产者（产生消息）" class="headerlink" title="创建生产者（产生消息）"></a>创建生产者（产生消息）</h3><p>在创建生产者之前先创建一个配置文件：<code>config.php</code><br><div class="note warning"><p>代码中主机，端口，用户名及密码根据自己的实际情况进行更换。</p></div><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">define(<span class="string">'HOST'</span>, <span class="string">'localhost'</span>);</span><br><span class="line">define(<span class="string">'PORT'</span>, <span class="number">5672</span>);</span><br><span class="line">define(<span class="string">'USER'</span>, <span class="string">'harlan'</span>);</span><br><span class="line">define(<span class="string">'PASS'</span>, <span class="string">'123456'</span>);</span><br><span class="line">define(<span class="string">'MQ_NAME'</span>, <span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>使用上面安装的<code>php-amqplib</code>类库来创建一个生产者，命名为<code>send.php</code>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入composer自动加载文件及config文件</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="keyword">__DIR__</span> . <span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="keyword">__DIR__</span> . <span class="string">'/config.php'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入amqp类</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">PhpAmqpLib</span>\<span class="title">Connection</span>\<span class="title">AMQPStreamConnection</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">PhpAmqpLib</span>\<span class="title">Message</span>\<span class="title">AMQPMessage</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$connection = <span class="keyword">new</span> AMQPStreamConnection(HOST, PORT, USER, PASS);</span><br><span class="line">$channel = $connection-&gt;channel();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建队列通道</span></span><br><span class="line">$channel-&gt;queue_declare(MQ_NAME, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">$msg_str = <span class="string">'Hello World!'</span>;</span><br><span class="line">$msg = <span class="keyword">new</span> AMQPMessage($msg_str);</span><br><span class="line">$channel-&gt;basic_publish($msg, <span class="string">''</span>, MQ_NAME);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> ​<span class="string">" [x] Sent "</span> . $msg_str . <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后别忘了，断开连接</span></span><br><span class="line">$channel-&gt;close();</span><br><span class="line">$connection-&gt;close();</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>send.php</code>文件：<code>[root@localhost rabbitMQ]# php ./send.php</code></p>
+<h3 id="创建消费者（接收消息）"><a href="#创建消费者（接收消息）" class="headerlink" title="创建消费者（接收消息）"></a>创建消费者（接收消息）</h3><p>创建一个消费者命名为：<code>receive.php</code>，消费者用来接收生产者所产生的消息。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入composer自动加载文件及config文件</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="keyword">__DIR__</span> . <span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="keyword">__DIR__</span> . <span class="string">'/config.php'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入amqp类</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">PhpAmqpLib</span>\<span class="title">Connection</span>\<span class="title">AMQPStreamConnection</span>;</span><br><span class="line"></span><br><span class="line">$connection = <span class="keyword">new</span> AMQPStreamConnection(HOST, PORT, USER, PASS);</span><br><span class="line">$channel = $connection-&gt;channel();</span><br><span class="line"></span><br><span class="line">$channel-&gt;queue_declare($MQ_NAME, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> ​<span class="string">" [*] Waiting for messages. To exit press CTRL+C\n"</span>;</span><br><span class="line"></span><br><span class="line">$callback = <span class="function"><span class="keyword">function</span> <span class="params">($msg)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">' [x] Received '</span>, $msg-&gt;body, <span class="string">"\n"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$channel-&gt;basic_consume($MQ_NAME, <span class="string">''</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, $callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有消息就阻塞</span></span><br><span class="line"><span class="keyword">while</span> ($channel-&gt;is_consuming()) &#123;</span><br><span class="line">    $channel-&gt;wait();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>receive.php</code>文件：<code>[root@localhost rabbitMQ]# php ./receive.php</code>，发现程序被阻塞等待消息（使用Ctrl-C可以退出）。这时新建一个窗口运行<code>send.php</code>就可以看到效果了。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.rabbitmq.com/tutorials/tutorial-one-php.html" target="_blank" rel="noopener">rabbitMQ官网 - “Hello World”</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/rabbitmq/79100238.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harlan">
+      <meta itemprop="description" content="愈望愈无望 - 个人博客">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愈望愈无望">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/rabbitmq/79100238.html" itemprop="url">
+                  rabbitMQ使用期间可能会遇到的问题 - CentOS 7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-16 10:57:50" itemprop="dateCreated datePublished" datetime="2020-03-16T10:57:50+08:00">2020-03-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-17 09:33:12" itemprop="dateModified" datetime="2020-03-17T09:33:12+08:00">2020-03-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/rabbitmq/" itemprop="url" rel="index"><span itemprop="name">rabbitmq</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/rabbitmq/79100238.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/rabbitmq/79100238.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="NOT-ALLOWED-access-to-vhost-‘-‘-refused-for-user-‘harlan’"><a href="#NOT-ALLOWED-access-to-vhost-‘-‘-refused-for-user-‘harlan’" class="headerlink" title="NOT_ALLOWED - access to vhost ‘/‘ refused for user ‘harlan’"></a>NOT_ALLOWED - access to vhost ‘/‘ refused for user ‘harlan’</h3><div class="note danger"><p>原因是因为<code>harlan</code>用户没有访问 ‘/‘ 的权限。</p></div>
+<div class="note success"><p>使用下面命令修改权限：<br><code>rabbitmqctl set_permissions -p / test &#39;.*&#39; &#39;.*&#39; &#39;.*&#39;</code></p></div>
+<h3 id="inequivalent-arg-‘durable’-for-queue-‘hello’-in-vhost-‘-‘-received-‘true’-but-current-is-‘false’"><a href="#inequivalent-arg-‘durable’-for-queue-‘hello’-in-vhost-‘-‘-received-‘true’-but-current-is-‘false’" class="headerlink" title="inequivalent arg ‘durable’ for queue ‘hello’ in vhost ‘/‘: received ‘true’ but current is ‘false’"></a>inequivalent arg ‘durable’ for queue ‘hello’ in vhost ‘/‘: received ‘true’ but current is ‘false’</h3><div class="note danger"><p>原因是因为<code>hello</code>这个队列已经被你定义成非持久化的队列。</p></div>
+<div class="note success"><p><del><code>$channel-&gt;queue_declare(&#39;hello&#39;, false, true, false, false);</code></del><br>你现在如果需要一个持久化的队列，则需要从新定义。<br>将hello替换一下名字就好了。<br><code>$channel-&gt;queue_declare(&#39;harlan&#39;, false, true, false, false);</code></p></div>
+<h3 id="no-exchange-‘supply-exchange’-in-vhost-‘-‘"><a href="#no-exchange-‘supply-exchange’-in-vhost-‘-‘" class="headerlink" title="no exchange ‘supply_exchange’ in vhost ‘/‘"></a>no exchange ‘supply_exchange’ in vhost ‘/‘</h3><div class="note danger"><p>在发布者执行发布消息的时候报交换机不存在，这样将导致你的消息丢失。</p></div>
+<div class="note success"><p>一般创建交换机的代码在消费端，所以在运行发布端之前先执行消费端程序；<br><code>$channel-&gt;exchange_declare(&#39;supply_exchange&#39;, &#39;fanout&#39;, false, false, false);</code></p></div>
+<h3 id="inequivalent-arg-‘type’-for-exchange-‘supply-exchange’-in-vhost-‘-‘-received-‘direct’-but-current-is-‘fanout’"><a href="#inequivalent-arg-‘type’-for-exchange-‘supply-exchange’-in-vhost-‘-‘-received-‘direct’-but-current-is-‘fanout’" class="headerlink" title="inequivalent arg ‘type’ for exchange ‘supply_exchange’ in vhost ‘/‘: received ‘direct’ but current is ‘fanout’"></a>inequivalent arg ‘type’ for exchange ‘supply_exchange’ in vhost ‘/‘: received ‘direct’ but current is ‘fanout’</h3><div class="note danger"><p>交换机一旦创建了就不能在修改type类型。</p></div>
+<div class="note success"><p>如果想用不同类型的交换机就需要重新创建<br><code>$channel-&gt;exchange_declare(&#39;supply_exchange&#39;, &#39;direct&#39;, false, false, false);</code></p></div>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.cnblogs.com/wu-song/p/9923220.html" target="_blank" rel="noopener">RabbitMQ遇到的坑</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -620,7 +809,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-16 10:35:21" itemprop="dateModified" datetime="2020-03-16T10:35:21+08:00">2020-03-16</time>
+                <time title="修改时间：2020-03-17 09:34:36" itemprop="dateModified" datetime="2020-03-17T09:34:36+08:00">2020-03-17</time>
               
             
           </span>
@@ -1079,190 +1268,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hsweet.gitee.io/posts/php/d9c65851.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harlan">
-      <meta itemprop="description" content="愈望愈无望 - 个人博客">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="愈望愈无望">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/php/d9c65851.html" itemprop="url">
-                  JWT 学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-03 15:16:23" itemprop="dateCreated datePublished" datetime="2020-03-03T15:16:23+08:00">2020-03-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-04 10:38:58" itemprop="dateModified" datetime="2020-03-04T10:38:58+08:00">2020-03-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/php/d9c65851.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/php/d9c65851.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>&emsp;&emsp;<a href="https://jwt.io/" target="_blank" rel="noopener">JWT</a> 是什么？JWT是json web token缩写。它将用户信息加密到token里，服务器不保存任何用户信息。服务器通过使用保存的密钥验证token的正确性，只要正确即通过验证。基于token的身份验证可以替代传统的cookie+session身份验证方法。<br><div class="note primary"><p>使用流程：</p><ol><li>初次登录：用户初次登录，输入用户名密码；</li><li>密码验证：服务器从数据库取出用户名和密码进行验证；</li><li>生成JWT：服务器端验证通过，根据从数据库返回的信息，以及预设规则，生成JWT；</li><li>返还JWT：服务器的HTTP RESPONSE中将JWT返还；</li><li>带JWT的请求：以后客户端发起请求，HTTP REQUEST；</li><li>HEADER中的Authorizatio字段都要有值，为JWT；</li><li>服务器验证JWT；</li></ol></div></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/php/d9c65851.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1314,7 +1319,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1382,7 +1387,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
