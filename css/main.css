@@ -1861,7 +1861,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #784d88;
+  background: #ac00b3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3116,9 +3116,9 @@ ul.breadcrumb li+li:last-child {
   }
 }
 body {
-  background: url("/images/bg_one.jpg") no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("/images/darkness.png");
 }
 .posts-expand article {
   margin-top: 40px;
